@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+if ARGV.empty?
+  puts "Usage: #{$0} /path/to/your/app [options]"
+else
+  exec 'rails', '-m', File.expand_path('../../beans_rails.rb', __FILE__), *ARGV
+end

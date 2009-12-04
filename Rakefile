@@ -5,13 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "beans_rails"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "jeff@kreeftmeijer.nl"
-    gem.homepage = "http://github.com/jeffkreeftmeijer/beans_rails"
+    gem.summary = %Q{the 80beans rails project template (and generator)}
+    gem.description = %Q{the 80beans rails project template (and generator)}
+    gem.email = "jeff@80beans.com"
+    gem.homepage = "http://github.com/80beans/beans_rails"
     gem.authors = ["Jeff Kreeftmeijer"]
-    gem.add_development_dependency "thoughtbot-shoulda"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
