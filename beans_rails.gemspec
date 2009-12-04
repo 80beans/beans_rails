@@ -11,40 +11,35 @@ Gem::Specification.new do |s|
   s.authors = ["Jeff Kreeftmeijer"]
   s.date = %q{2009-12-04}
   s.default_executable = %q{beans_rails}
-  s.description = %q{}
-  s.email = %q{jeff@kreeftmeijer.nl}
+  s.description = %q{the 80beans rails project template (and generator)}
+  s.email = %q{jeff@80beans.com}
   s.executables = ["beans_rails"]
   s.extra_rdoc_files = [
-    "LICENSE",
-     "README.rdoc"
+    "LICENSE"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
      "Rakefile",
      "VERSION",
      "beans_rails.gemspec",
      "beans_rails.rb",
      "bin/beans_rails"
   ]
-  s.homepage = %q{http://github.com/jeffkreeftmeijer/beans_rails}
+  s.homepage = %q{http://github.com/80beans/beans_rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{}
+  s.summary = %q{the 80beans rails project template (and generator)}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     else
-      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     end
   else
-    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
   end
 end
