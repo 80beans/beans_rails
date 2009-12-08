@@ -1,4 +1,4 @@
-TEMPLATES_DIR = 'http://github.com/80beans/beans_rails/raw/bundler/templates/'
+TEMPLATES_DIR = 'http://github.com/80beans/beans_rails/raw/master/templates/'
 
 class Rails::TemplateRunner
   def app_name
