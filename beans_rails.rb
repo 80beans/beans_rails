@@ -5,9 +5,14 @@ class Rails::TemplateRunner
     File.basename(root)
   end
   
-  def template_file(template)
+  def template_file(template, replace = {})
+    replace = {:app_name => app_name}.merge(replace)
     contents = open(File.join(TEMPLATES_DIR, template)).read
-    contents.gsub!('{{app_name}}', app_name)
+        
+    replace.keys.each do |key|
+      contents.gsub!("{{#{key.to_s}}}", replace[key])
+    end
+    
     file template, contents
   end
 end
@@ -38,47 +43,9 @@ template_file('config/database.yml')
 
 # capistrano
 
-if yes?('Add capistrano configuration?') then
-  file 'Capfile', <<-EOF
-  load 'deploy' if respond_to?(:namespace) # cap2 differentiator
-  Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
-  load 'config/deploy'
-  EOF
-
-  server = ask('What is the server name?')
-  file 'config/deploy.rb', <<-EOF
-set :application, '#{app_name}'
-
-set :scm, :git
-set :repository, "git@git.80beans.net:\#{application}"
-set :branch, 'master'
-set :git_enable_submodules, true
-set :deploy_via, :remote_cache
-set :use_sudo, false
-
-ssh_options[:forward_agent] = true
-ssh_options[:username] = application
-
-role :app, '#{server}'
-role :web, '#{server}'
-role :db,  '#{server}', :primary => true
-
-set :deploy_to, "/home/\#{application}/app"
-
-task :tail do
-  run "tail -f \#{deploy_to}/shared/log/production.log"
-end
-
-namespace :deploy do
-  task :start, :roles => :app do
-    run "touch \#{current_path}/tmp/restart.txt"
-  end
-
-  task :restart, :roles => :app do
-    run "touch \#{current_path}/tmp/restart.txt"
-  end
-end
-EOF
+if yes?('Add capistrano configuration?')
+  template_file('Capfile')
+  template_file('config/deploy', {:server => ask('What is the server name?')})
 end
 
 # git 
