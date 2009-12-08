@@ -12,8 +12,6 @@ class Rails::TemplateRunner
   end
 end
 
-app_name = root.split('/').last
-
 # removing unnecessary files
 
 run "rm README"
@@ -85,14 +83,7 @@ end
 
 # git 
 
-file '.gitignore', <<-EOF
-.DS_Store
-tmp
-db/schema.rb
-log/*
-public/uploads
-public/stylesheets/*.css
-EOF
+template_file('.gitignore')
 
 git :init
 git :add => "."
