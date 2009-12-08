@@ -41,6 +41,7 @@ end
 
 task :create_symlinked_folders do
   run "mkdir -p #{shared_path}/tmp"
+  run "mkdir -p #{shared_path}/uploads"
 end
 
 after "deploy:setup", :create_symlinked_folders
