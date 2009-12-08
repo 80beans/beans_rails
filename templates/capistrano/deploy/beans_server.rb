@@ -12,12 +12,10 @@ Capistrano::Configuration.instance(:must_exist).load do
       original_ssh_username = ssh_options[:username]
       ssh_options[:username] = Capistrano::CLI.ui.ask("Username that has sudo rights: ")
       
-      #create_user
-      #create_htpasswd
-      #create_vhost
-      #create_database
-      
-      ssh_options[:username] = original_ssh_username
+      create_user
+      create_htpasswd
+      create_vhost
+      create_database
     end
     
     desc "Generates SSH key for Git Repository"

@@ -1,6 +1,6 @@
-set :username, 'digital_intercedent_staging'
+set :username, "#{application}_staging"
 set :branch, 'master'
-set :deploy_to, "/home/digital_intercedent_staging/app"
+set :deploy_to, "/home/#{application}_staging/app"
 
 set :rails_env, 'staging'
 
