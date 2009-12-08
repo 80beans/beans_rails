@@ -17,18 +17,22 @@ end
 
 ['README', 'doc/*', 'log/*', 'test', 'public/index.html', 'public/images/rails.png'].each { |file| run "rm -rf #{file}" }
 
-# installing gems
+# install bundler
 
-['capistrano', 'capistrano-ext', 'haml', 'paperclip', 'rspec', 'rspec-rails', 'will_paginate'].each { |rubygem| gem rubygem }
+gem 'bundler'
 rake "gems:install", :sudo => true
 
 # generating rspec stuff
 
 generate :rspec
 
-# database config & gitignore
+# copy the .gitignore, database.yml and Gemfile to the app
 
-['config/database.yml', '.gitignore'].each { |file| template_file(file) }
+['Gemfile', '.gitignore', 'config/database.yml' ].each { |file| template_file(file) }
+
+# bundle the gems
+
+run 'gem bundle'
 
 # capistrano
 
@@ -37,7 +41,7 @@ if yes?('Add capistrano configuration?')
   template_file('config/deploy', { :server => ask('What is the server name?') })
 end
 
-#git 
+# git 
 
 git :init
 git :add => "."
