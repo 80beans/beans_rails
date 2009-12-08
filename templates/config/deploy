@@ -1,7 +1,7 @@
 set :application, '{{app_name}}'
 
 set :scm, :git
-set :repository, "git@git.80beans.net:\#{application}"
+set :repository, "git@git.80beans.net:#{application}"
 set :branch, 'master'
 set :git_enable_submodules, true
 set :deploy_via, :remote_cache
@@ -14,18 +14,18 @@ role :app, '{{server}}'
 role :web, '{{server}}'
 role :db,  '{{server}}', :primary => true
 
-set :deploy_to, "/home/\#{application}/app"
+set :deploy_to, "/home/#{application}/app"
 
 task :tail do
-  run "tail -f \#{deploy_to}/shared/log/production.log"
+  run "tail -f #{deploy_to}/shared/log/production.log"
 end
 
 namespace :deploy do
   task :start, :roles => :app do
-    run "touch \#{current_path}/tmp/restart.txt"
+    run "touch #{current_path}/tmp/restart.txt"
   end
 
   task :restart, :roles => :app do
-    run "touch \#{current_path}/tmp/restart.txt"
+    run "touch #{current_path}/tmp/restart.txt"
   end
 end
