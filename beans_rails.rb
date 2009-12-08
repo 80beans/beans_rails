@@ -1,4 +1,4 @@
-TEMPLATES_DIR = 'http://github.com/80beans/beans_rails/raw/master/templates/'
+TEMPLATES_DIR = 'http://github.com/80beans/beans_rails/raw/bundler/templates/'
 
 class Rails::TemplateRunner
   def app_name
@@ -22,10 +22,6 @@ end
 gem 'bundler'
 rake "gems:install", :sudo => true
 
-# generating rspec stuff
-
-generate :rspec
-
 # copy the .gitignore, database.yml and Gemfile to the app
 
 ['Gemfile', '.gitignore', 'config/database.yml' ].each { |file| template_file(file) }
@@ -33,6 +29,10 @@ generate :rspec
 # bundle the gems
 
 run 'gem bundle'
+
+# generating rspec stuff
+
+generate :rspec
 
 # capistrano
 
