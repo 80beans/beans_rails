@@ -19,7 +19,7 @@ end
 
 # installing gems
 
-['haml', 'will_paginate', 'paperclip'].each { |rubygem| gem rubygem }
+['capistrano', 'capistrano-ext', 'haml', 'paperclip', 'rspec', 'rspec-rails', 'will_paginate'].each { |rubygem| gem rubygem }
 rake "gems:install", :sudo => true
 
 # generating rspec stuff
