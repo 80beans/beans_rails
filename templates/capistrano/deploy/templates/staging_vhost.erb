@@ -1,0 +1,26 @@
+<VirtualHost *:80>
+  AddDefaultCharset UTF-8
+
+  ServerName <%= server_name %>
+  DocumentRoot <%= public_path %>
+  
+  ErrorLog /var/log/apache2/<% application_name %>/error.log
+  CustomLog /var/log/apache2/<% application_name %>/access.log combined
+  
+  RailsEnv staging
+  
+  <Directory "<%= public_path %>/">
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+  
+  <Location "/">
+    AuthName "Stats"
+    AuthType Basic
+    AuthUserFile /home/<%= application_name %>/.htpasswd
+    Require valid-user
+  </Location>
+  
+</VirtualHost>

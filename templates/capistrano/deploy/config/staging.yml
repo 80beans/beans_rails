@@ -1,0 +1,7 @@
+apache:
+  vhost_dir: /etc/apache2/sites-enabled
+  base_hostname: staging.80beans.net
+  
+mysql:
+  user: root
+  pass: 4pp3lb4n44n
