@@ -1,5 +1,7 @@
 app_name = root.split('/').last
 
+# removing unnecessary files
+
 run "rm README"
 run "rm doc/*"
 run "rm log/*"
@@ -7,21 +9,18 @@ run "rm -rf test"
 run "rm public/index.html"
 run "rm public/images/rails.png"
 
+# gems
+
 gem 'haml'
-gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
-gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
+gem 'mislav-will_paginate', :lib => 'will_paginate',  :source => 'http://gems.github.com'
+gem 'thoughtbot-paperclip', :lib => 'paperclip',      :source => 'http://gems.github.com'
+
+# generating haml & rspec stuff
 
 run "haml --rails ."
 generate :rspec
 
-file '.gitignore', <<-EOF
-.DS_Store
-tmp
-db/schema.rb
-log/*
-public/uploads
-public/stylesheets/*.css
-EOF
+# updating the database file
 
 file 'config/database.yml', <<-EOF
 development:
@@ -37,6 +36,8 @@ test:
   username: root
   password:
 EOF
+
+# capistrano
 
 if yes?('Add capistrano configuration?') then
   file 'Capfile', <<-EOF
@@ -80,6 +81,17 @@ namespace :deploy do
 end
 EOF
 end
+
+# git 
+
+file '.gitignore', <<-EOF
+.DS_Store
+tmp
+db/schema.rb
+log/*
+public/uploads
+public/stylesheets/*.css
+EOF
 
 git :init
 git :add => "."
