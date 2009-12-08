@@ -4,7 +4,7 @@ require 'erb'
 require 'capistrano/ext/multistage' # needs the capistrano-ext gem
 require 'config/deploy/beans_server'
 
-set :application, 'digital_intercedent'
+set :application, '{{app_name}}'
 
 set :scm, :git
 set :repository, "git@git.80beans.net:#{application}"

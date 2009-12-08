@@ -17,6 +17,9 @@ end
 
 ['README', 'doc/*', 'log/*', 'test', 'public/index.html', 'public/images/rails.png'].each { |file| run "rm -rf #{file}" }
 
+# create the needed directories 
+['config', 'deploy', 'deploy/config', 'deploy/templates'].each { |dir| run "mkdir #{dir}"}
+
 # install bundler
 
 gem 'bundler'
@@ -37,8 +40,17 @@ generate :rspec
 # capistrano
 
 if yes?('Add capistrano configuration?')
-  template_file('Capfile')
-  template_file('config/deploy', { :server => ask('What is the server name?') })
+[ 
+  'Capfile',
+  'config/deploy.rb',
+  'deploy/beans_server.rb',
+  'deploy/production.rb',
+  'deploy/staging.rb',
+  'deploy/config/staging.yml',
+  'deploy/templates/database.erb',
+  'deploy/templates/public_keys.txt',
+  'deploy/templates/staging_vhost.erb'
+].each { |file| template_file(file) }
 end
 
 # git 
