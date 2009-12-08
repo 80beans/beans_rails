@@ -28,4 +28,8 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
+  
+  task :finalize_update do
+    run "gem bundle"
+  end
 end
