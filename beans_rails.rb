@@ -1,3 +1,17 @@
+TEMPLATES_DIR = 'http://github.com/80beans/beans_rails/raw/cleanup/templates/'
+
+class Rails::TemplateRunner
+  def app_name
+    File.basename(root)
+  end
+  
+  def template_file(template)
+    contents = open(File.join(TEMPLATES_DIR, template)).read
+    contents.gsub!('{{app_name}}', app_name)
+    file template, contents
+  end
+end
+
 app_name = root.split('/').last
 
 # removing unnecessary files
@@ -22,20 +36,7 @@ generate :rspec
 
 # updating the database file
 
-file 'config/database.yml', <<-EOF
-development:
-  adapter: mysql
-  encoding: utf8
-  database: #{app_name}_dev
-  username: root
-  password: 
-test:
-  adapter: mysql
-  encoding: utf8
-  database: #{app_name}_test
-  username: root
-  password:
-EOF
+template_file('config/database.yml')
 
 # capistrano
 
