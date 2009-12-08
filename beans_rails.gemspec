@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{beans_rails}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Kreeftmeijer"]
@@ -28,8 +28,16 @@ Gem::Specification.new do |s|
      "bin/beans_rails",
      "templates/.gitignore",
      "templates/Capfile",
+     "templates/Gemfile",
      "templates/config/database.yml",
-     "templates/config/deploy"
+     "templates/config/deploy.rb",
+     "templates/deploy/beans_server.rb",
+     "templates/deploy/config/staging.yml",
+     "templates/deploy/production.rb",
+     "templates/deploy/staging.rb",
+     "templates/deploy/templates/database.erb",
+     "templates/deploy/templates/public_keys.txt",
+     "templates/deploy/templates/staging_vhost.erb"
   ]
   s.homepage = %q{http://github.com/80beans/beans_rails}
   s.rdoc_options = ["--charset=UTF-8"]
