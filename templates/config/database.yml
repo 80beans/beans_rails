@@ -9,4 +9,4 @@ test:
   encoding: utf8
   database: {{app_name}}_test
   username: root
-  password:
+  password: 

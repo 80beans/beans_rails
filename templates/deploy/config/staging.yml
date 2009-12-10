@@ -4,4 +4,4 @@ apache:
   
 mysql:
   user: root
-  pass:
+  pass: 
