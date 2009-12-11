@@ -15,20 +15,23 @@ end
 
 # removing unnecessary files
 
-['README', 'doc/*', 'log/*', 'test', 'public/index.html', 'public/images/rails.png'].each { |file| run "rm -rf #{file}" }
+['README', 'doc/*', 'test', 'public/index.html', 'public/images/rails.png'].each { |file| run "rm -rf #{file}" }
 
-# install bundler
+# add the required gems to the environment file and install
 
-gem 'bundler'
+gem 'capistrano'
+gem 'capistrano-ext', :lib => 'capistrano'
+gem 'haml'
+gem 'paperclip'
+gem 'rspec'
+gem 'rspec-rails', :lib => 'spec'
+gem 'will_paginate'
+
 rake "gems:install", :sudo => true
 
-# copy the .gitignore, database.yml and Gemfile to the app
+# copy the .gitignore and database.yml to the app
 
-['Gemfile', '.gitignore', 'config/database.yml', 'config/preinitializer.rb'].each { |file| template_file(file) }
-
-# bundle the gems
-
-run 'gem bundle'
+['.gitignore', 'config/database.yml'].each { |file| template_file(file) }
 
 # generating rspec stuff
 
