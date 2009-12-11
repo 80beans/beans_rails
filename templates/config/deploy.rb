@@ -2,7 +2,7 @@ set :default_stage, 'staging'
 
 require 'erb'
 require 'capistrano/ext/multistage' # needs the capistrano-ext gem
-require 'config/deploy/beans_server'
+require 'recipes/beans_server'
 
 set :application, '{{app_name}}'
 
