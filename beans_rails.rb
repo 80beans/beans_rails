@@ -39,19 +39,19 @@ generate :rspec
 if yes?('Add capistrano configuration?')
 
   # create the needed directories 
-  ['deploy', 'deploy/config', 'deploy/templates'].each { |dir| run "mkdir #{dir}"}
+  ['config/deploy', 'config/deploy/config', 'config/deploy/templates'].each { |dir| run "mkdir #{dir}"}
   
   # move the templates to the app
   [ 
     'Capfile',
     'config/deploy.rb',
-    'deploy/beans_server.rb',
-    'deploy/production.rb',
-    'deploy/staging.rb',
-    'deploy/config/staging.yml',
-    'deploy/templates/database.erb',
-    'deploy/templates/public_keys.txt',
-    'deploy/templates/staging_vhost.erb'
+    'config/deploy/beans_server.rb',
+    'config/deploy/production.rb',
+    'config/deploy/staging.rb',
+    'config/deploy/config/staging.yml',
+    'config/deploy/templates/database.erb',
+    'config/deploy/templates/public_keys.txt',
+    'config/deploy/templates/staging_vhost.erb'
   ].each { |file| template_file(file) }
 end
 
