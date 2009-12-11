@@ -27,7 +27,7 @@ rake "gems:install", :sudo => true
 
 # copy the .gitignore, database.yml and Gemfile to the app
 
-['Gemfile', '.gitignore', 'config/database.yml' ].each { |file| template_file(file) }
+['Gemfile', '.gitignore', 'config/database.yml', 'config/preinitializer.rb'].each { |file| template_file(file) }
 
 # bundle the gems
 
