@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Kreeftmeijer"]
-  s.date = %q{2009-12-08}
+  s.date = %q{2009-12-11}
   s.default_executable = %q{beans_rails}
   s.description = %q{the 80beans rails project template (and generator)}
   s.email = %q{jeff@80beans.com}
@@ -28,16 +28,15 @@ Gem::Specification.new do |s|
      "bin/beans_rails",
      "templates/.gitignore",
      "templates/Capfile",
-     "templates/Gemfile",
      "templates/config/database.yml",
      "templates/config/deploy.rb",
-     "templates/deploy/beans_server.rb",
-     "templates/deploy/config/staging.yml",
-     "templates/deploy/production.rb",
-     "templates/deploy/staging.rb",
-     "templates/deploy/templates/database.erb",
-     "templates/deploy/templates/public_keys.txt",
-     "templates/deploy/templates/staging_vhost.erb"
+     "templates/config/deploy/config/staging.yml",
+     "templates/config/deploy/production.rb",
+     "templates/config/deploy/staging.rb",
+     "templates/config/deploy/templates/database.erb",
+     "templates/config/deploy/templates/public_keys.txt",
+     "templates/config/deploy/templates/staging_vhost.erb",
+     "templates/recipes/beans_server.rb"
   ]
   s.homepage = %q{http://github.com/80beans/beans_rails}
   s.rdoc_options = ["--charset=UTF-8"]
