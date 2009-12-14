@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "bin/beans_rails",
      "templates/.gitignore",
      "templates/Capfile",
+     "templates/Gemfile",
      "templates/config/database.yml",
      "templates/config/deploy.rb",
      "templates/config/deploy/config/staging.yml",
@@ -38,9 +39,6 @@ Gem::Specification.new do |s|
      "templates/config/deploy/templates/database.erb",
      "templates/config/deploy/templates/public_keys.txt",
      "templates/config/deploy/templates/staging_vhost.erb",
-     "templates/config/environments/development.rb",
-     "templates/config/environments/production.rb",
-     "templates/config/environments/test.rb",
      "templates/config/preinitializer.rb",
      "templates/recipes/beans_server.rb"
   ]
