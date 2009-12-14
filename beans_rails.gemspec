@@ -15,12 +15,14 @@ Gem::Specification.new do |s|
   s.email = %q{jeff@80beans.com}
   s.executables = ["beans_rails"]
   s.extra_rdoc_files = [
-    "LICENSE"
+    "LICENSE",
+     "README.textile"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
+     "README.textile",
      "Rakefile",
      "VERSION",
      "beans_rails.gemspec",
@@ -36,10 +38,10 @@ Gem::Specification.new do |s|
      "templates/config/deploy/templates/database.erb",
      "templates/config/deploy/templates/public_keys.txt",
      "templates/config/deploy/templates/staging_vhost.erb",
-     "templates/config/development.rb",
+     "templates/config/environments/development.rb",
+     "templates/config/environments/production.rb",
+     "templates/config/environments/test.rb",
      "templates/config/preinitializer.rb",
-     "templates/config/production.rb",
-     "templates/config/test.rb",
      "templates/recipes/beans_server.rb"
   ]
   s.homepage = %q{http://github.com/80beans/beans_rails}
