@@ -10,6 +10,6 @@ bc. sudo gem install beans_rails
 
 And use the @beans_rails@ generator to start your project instead of the standard @rails@ generator;
 
-bc. beans_rails [project_name]
+bc. beans_rails <project_name>
 
 Have fun! :)
