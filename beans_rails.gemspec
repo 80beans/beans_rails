@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{beans_rails}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Kreeftmeijer"]
-  s.date = %q{2009-12-11}
+  s.date = %q{2009-12-14}
   s.default_executable = %q{beans_rails}
   s.description = %q{the 80beans rails project template (and generator)}
   s.email = %q{jeff@80beans.com}
@@ -36,6 +36,10 @@ Gem::Specification.new do |s|
      "templates/config/deploy/templates/database.erb",
      "templates/config/deploy/templates/public_keys.txt",
      "templates/config/deploy/templates/staging_vhost.erb",
+     "templates/config/development.rb",
+     "templates/config/preinitializer.rb",
+     "templates/config/production.rb",
+     "templates/config/test.rb",
      "templates/recipes/beans_server.rb"
   ]
   s.homepage = %q{http://github.com/80beans/beans_rails}
