@@ -1,0 +1,8 @@
+gem 'rails', '2.3.5'
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'haml'
+gem 'paperclip'
+gem 'rspec'
+gem 'rspec-rails'
+gem 'will_paginate'
