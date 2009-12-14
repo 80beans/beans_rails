@@ -19,15 +19,12 @@ end
 
 # add the required gems to the environment file and install
 
-gem 'capistrano'
-gem 'capistrano-ext', :lib => 'capistrano'
-gem 'haml'
-gem 'paperclip'
-gem 'rspec'
-gem 'rspec-rails', :lib => 'spec'
-gem 'will_paginate'
-
+gem 'bundler'
 rake "gems:install", :sudo => true
+
+# copy the .gitignore, database.yml and files needed for bundler to the app
+
+['.gitignore', 'Gemfile', 'config/database.yml', 'config/development.rb', 'config/preinitializer.rb', 'config/production.rb', 'config/test.rb'].each { |file| template_file(file) }
 
 # copy the .gitignore and database.yml to the app
 
