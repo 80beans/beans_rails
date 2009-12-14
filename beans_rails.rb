@@ -22,9 +22,9 @@ end
 gem 'bundler'
 rake "gems:install", :sudo => true
 
-# copy the .gitignore, database.yml and Gemfile to the app
+# copy the .gitignore, database.yml and files needed for bundler to the app
 
-['Gemfile', '.gitignore', 'config/database.yml', 'config/preinitializer.rb'].each { |file| template_file(file) }
+['.gitignore', 'Gemfile', 'config/database.yml', 'config/development.rb', 'config/preinitializer.rb', 'config/production.rb', 'config/test.rb'].each { |file| template_file(file) }
 
 # bundle the gems
 
