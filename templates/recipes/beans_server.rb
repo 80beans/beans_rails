@@ -6,7 +6,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       working_directory = current_path
       
       @service_name = application
-      @server_info = YAML.load(File.read(File.join(File.dirname(__FILE__), 'config', "#{rails_env}.yml")))
+      @server_info = YAML.load(File.read(File.join(File.dirname(__FILE__), '..', 'config', 'deploy', 'config', "#{rails_env}.yml")))
       @application_name = "#{application}_#{rails_env}"
       @home_path = "/home/#{@application_name}"
       original_ssh_username = ssh_options[:username]
@@ -37,7 +37,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       
       sudo "useradd -d #{@home_path} -m -G www-data #{@application_name}"
       
-      public_keys = File.read(File.join(File.dirname(__FILE__), 'templates', "public_keys.txt"))
+      public_keys = File.read(File.join(File.dirname(__FILE__), '..', 'config', 'deploy', 'templates', "public_keys.txt"))
       
       put public_keys, "#{application}-public_keys.txt"
       sudo "mkdir #{@home_path}/.ssh"
@@ -61,7 +61,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       public_path = "#{current_path}/public"
       application_name = @application_name
       
-      template = File.read(File.join(File.dirname(__FILE__), 'templates', "#{rails_env}_vhost.erb"))
+      template = File.read(File.join(File.dirname(__FILE__), '..', 'config', 'deploy', 'templates', "#{rails_env}_vhost.erb"))
       buffer = ERB.new(template).result(binding)
  
       put buffer, "#{application}-apache-vhost.conf"
@@ -86,7 +86,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       mysql_pass = @server_info['mysql']['pass'] ? @server_info['mysql']['pass'] :  Capistrano::CLI.ui.ask("Mysql password for #{mysql_user}: ")
       
       
-      template = File.read(File.join(File.dirname(__FILE__), 'templates', "database.erb"))
+      template = File.read(File.join(File.dirname(__FILE__), '..', 'config', 'deploy', 'templates', "database.erb"))
       buffer = ERB.new(template).result(binding)
       
       put buffer, "#{application}-database.sql"
