@@ -26,7 +26,7 @@ run 'gem bundle'
 
 # copy the .gitignore, database.yml and files needed for bundler to the app
 
-['.gitignore', 'Gemfile', 'config/database.yml', 'config/preinitializer.rb'].each { |file| template_file(file) }
+['.gitignore', 'Gemfile', 'config/database.yml', 'config/environments/staging.rb', 'config/preinitializer.rb'].each { |file| template_file(file) }
 
 # copy the .gitignore and database.yml to the app
 
