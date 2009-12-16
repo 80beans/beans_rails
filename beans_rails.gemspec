@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Kreeftmeijer"]
-  s.date = %q{2009-12-14}
+  s.date = %q{2009-12-16}
   s.default_executable = %q{beans_rails}
   s.description = %q{the 80beans rails project template (and generator)}
   s.email = %q{jeff@80beans.com}
